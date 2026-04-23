@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react'
+import { useTheme } from '../../context/ThemeContext'
 
 const TRAIL_LENGTH = 8
 
@@ -6,11 +7,16 @@ export default function CursorTrail() {
   const trailRef = useRef([])
   const mouseRef = useRef({ x: -100, y: -100 })
   const rafRef = useRef(null)
+  const { theme } = useTheme()
 
   useEffect(() => {
-    // Create trail elements
+    // Clear any existing trail if theme changes
     const container = document.getElementById('cursor-trail-container')
     if (!container) return
+    container.innerHTML = ''
+
+    const isLight = theme === 'light'
+    const rgbColor = isLight ? '0, 0, 0' : '255, 255, 255'
 
     const triangles = Array.from({ length: TRAIL_LENGTH }, (_, i) => {
       const el = document.createElement('div')
@@ -33,9 +39,9 @@ export default function CursorTrail() {
       poly.setAttribute('points', '10,0 20,17 0,17')
       
       const alpha = 0.6 * ((i + 1) / TRAIL_LENGTH)
-      poly.setAttribute('stroke', `rgba(255,255,255,${alpha})`)
+      poly.setAttribute('stroke', `rgba(${rgbColor}, ${alpha})`)
       poly.setAttribute('stroke-width', '1.5')
-      poly.setAttribute('fill', `rgba(255,255,255,${alpha * 0.1})`)
+      poly.setAttribute('fill', `rgba(${rgbColor}, ${alpha * 0.1})`)
       svg.appendChild(poly)
       el.appendChild(svg)
       container.appendChild(el)
@@ -87,7 +93,7 @@ export default function CursorTrail() {
       cancelAnimationFrame(rafRef.current)
       triangles.forEach((t) => t.el.remove())
     }
-  }, [])
+  }, [theme])
 
   return <div id="cursor-trail-container" style={{ position: 'fixed', inset: 0, zIndex: 9999, pointerEvents: 'none' }} />
 }

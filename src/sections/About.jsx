@@ -45,9 +45,9 @@ export default function About() {
         viewBox="0 0 300 300"
         fill="none"
       >
-        <polygon points="150,0 300,300 0,300" stroke="white" strokeWidth="1" fill="none" />
-        <polygon points="150,40 260,300 40,300" stroke="white" strokeWidth="0.6" fill="none" />
-        <polygon points="150,80 220,300 80,300" stroke="white" strokeWidth="0.3" fill="none" />
+        <polygon points="150,0 300,300 0,300" stroke="var(--theme-text-primary)" strokeWidth="1" fill="none" />
+        <polygon points="150,40 260,300 40,300" stroke="var(--theme-text-primary)" strokeWidth="0.6" fill="none" />
+        <polygon points="150,80 220,300 80,300" stroke="var(--theme-text-primary)" strokeWidth="0.3" fill="none" />
       </svg>
 
       <div style={{ maxWidth: '1200px', margin: '0 auto', width: '100%' }}>
@@ -61,7 +61,7 @@ export default function About() {
             fontFamily: 'var(--font-mono)',
             fontSize: '0.7rem',
             letterSpacing: '0.25em',
-            color: 'rgba(255,255,255,0.35)',
+            color: 'var(--theme-text-tertiary)',
             textTransform: 'uppercase',
             marginBottom: '1rem',
             display: 'flex',
@@ -69,7 +69,7 @@ export default function About() {
             gap: '10px',
           }}
         >
-          <svg width="14" height="12" viewBox="0 0 14 12" fill="white" opacity="0.35">
+          <svg width="14" height="12" viewBox="0 0 14 12" fill="var(--theme-text-primary)" opacity="0.35">
             <polygon points="7,0 14,12 0,12" />
           </svg>
           01 — About
@@ -92,17 +92,15 @@ export default function About() {
                 viewBox="0 0 440 440"
                 fill="none"
               >
-                <polygon points="220,10 430,430 10,430" stroke="rgba(255,255,255,0.15)" strokeWidth="1" fill="none" strokeDasharray="4 8" />
-                <polygon points="220,50 390,430 50,430" stroke="rgba(255,255,255,0.07)" strokeWidth="1" fill="none" />
+                <polygon points="220,10 430,430 10,430" stroke="var(--theme-border-light)" strokeWidth="1" fill="none" strokeDasharray="4 8" />
+                <polygon points="220,50 390,430 50,430" stroke="var(--theme-border-faint)" strokeWidth="1" fill="none" />
               </svg>
-
-              {/* Portrait box with triangle clip */}
               <div
                 style={{
                   width: '100%',
                   aspectRatio: '1',
-                  background: 'linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%)',
-                  border: '1px solid rgba(255,255,255,0.08)',
+                  background: 'var(--theme-surface-glass)',
+                  border: '1px solid var(--theme-border-light)',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
@@ -112,13 +110,13 @@ export default function About() {
               >
                 {/* Abstract geometric face placeholder */}
                 <svg width="200" height="200" viewBox="0 0 200 200" fill="none" opacity="0.6">
-                  <polygon points="100,10 190,180 10,180" stroke="white" strokeWidth="1.5" fill="none" />
-                  <polygon points="100,40 165,180 35,180" stroke="rgba(255,255,255,0.5)" strokeWidth="1" fill="rgba(255,255,255,0.02)" />
-                  <polygon points="100,70 140,180 60,180" stroke="rgba(255,255,255,0.3)" strokeWidth="0.8" fill="rgba(255,255,255,0.03)" />
-                  <circle cx="100" cy="75" r="15" stroke="white" strokeWidth="1" fill="none" />
-                  <circle cx="100" cy="75" r="5" fill="white" opacity="0.6" />
-                  <line x1="80" y1="100" x2="120" y2="100" stroke="rgba(255,255,255,0.3)" strokeWidth="0.8" />
-                  <line x1="75" y1="115" x2="125" y2="115" stroke="rgba(255,255,255,0.2)" strokeWidth="0.6" />
+                  <polygon points="100,10 190,180 10,180" stroke="var(--theme-text-primary)" strokeWidth="1.5" fill="none" />
+                  <polygon points="100,40 165,180 35,180" stroke="var(--theme-text-secondary)" strokeWidth="1" fill="var(--theme-surface-glass)" />
+                  <polygon points="100,70 140,180 60,180" stroke="var(--theme-text-tertiary)" strokeWidth="0.8" fill="var(--theme-surface-glass)" />
+                  <circle cx="100" cy="75" r="15" stroke="var(--theme-text-primary)" strokeWidth="1" fill="none" />
+                  <circle cx="100" cy="75" r="5" fill="var(--theme-text-primary)" opacity="0.6" />
+                  <line x1="80" y1="100" x2="120" y2="100" stroke="var(--theme-text-tertiary)" strokeWidth="0.8" />
+                  <line x1="75" y1="115" x2="125" y2="115" stroke="var(--theme-border-strong)" strokeWidth="0.6" />
                 </svg>
 
                 {/* Triangle corner accents */}
@@ -134,8 +132,8 @@ export default function About() {
                   position: 'absolute',
                   bottom: '-1.5rem',
                   right: '-1rem',
-                  background: 'white',
-                  color: 'black',
+                  background: 'var(--theme-text-primary)',
+                  color: 'var(--theme-bg)',
                   padding: '8px 16px',
                   fontFamily: 'var(--font-display)',
                   fontWeight: 700,
@@ -164,7 +162,7 @@ export default function About() {
                 fontSize: 'clamp(2rem, 4vw, 3.5rem)',
                 fontWeight: 700,
                 lineHeight: 1.1,
-                color: 'white',
+                color: 'var(--theme-text-primary)',
                 marginBottom: '1.5rem',
                 letterSpacing: '-0.02em',
               }}
@@ -180,7 +178,7 @@ export default function About() {
               animate={isInView ? 'visible' : 'hidden'}
               custom={2}
               style={{
-                color: 'rgba(255,255,255,0.5)',
+                color: 'var(--theme-text-secondary)',
                 lineHeight: '1.8',
                 marginBottom: '1.2rem',
                 fontSize: '0.95rem',
@@ -195,7 +193,7 @@ export default function About() {
               animate={isInView ? 'visible' : 'hidden'}
               custom={2.3}
               style={{
-                color: 'rgba(255,255,255,0.4)',
+                color: 'var(--theme-text-tertiary)',
                 lineHeight: '1.8',
                 marginBottom: '2.5rem',
                 fontSize: '0.9rem',
@@ -215,7 +213,7 @@ export default function About() {
                 gridTemplateColumns: 'repeat(3, 1fr)',
                 gap: '1.5rem',
                 paddingTop: '2rem',
-                borderTop: '1px solid rgba(255,255,255,0.07)',
+                borderTop: '1px solid var(--theme-border-faint)',
               }}
             >
               {stats.map(({ label, value }) => (
@@ -225,7 +223,7 @@ export default function About() {
                       fontFamily: 'var(--font-display)',
                       fontSize: '2rem',
                       fontWeight: 700,
-                      color: 'white',
+                      color: 'var(--theme-text-primary)',
                       lineHeight: 1,
                       marginBottom: '4px',
                     }}
@@ -237,7 +235,7 @@ export default function About() {
                       fontFamily: 'var(--font-mono)',
                       fontSize: '0.65rem',
                       letterSpacing: '0.1em',
-                      color: 'rgba(255,255,255,0.35)',
+                      color: 'var(--theme-text-tertiary)',
                       textTransform: 'uppercase',
                     }}
                   >
@@ -253,7 +251,7 @@ export default function About() {
       {/* Section bottom divider */}
       <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0 }}>
         <svg viewBox="0 0 1440 40" fill="none" preserveAspectRatio="none" style={{ width: '100%', height: '40px' }}>
-          <polygon points="0,40 720,0 1440,40" fill="rgba(255,255,255,0.02)" />
+          <polygon points="0,40 720,0 1440,40" fill="var(--theme-surface-glass)" />
         </svg>
       </div>
 

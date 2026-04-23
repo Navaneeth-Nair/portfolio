@@ -134,7 +134,7 @@ function ProjectModal({ project, onClose }) {
           <div
             style={{
               height: '220px',
-              background: 'linear-gradient(135deg, #111 0%, #1a1a1a 100%)',
+              background: "var(--theme-surface-glass)",
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
@@ -152,7 +152,7 @@ function ProjectModal({ project, onClose }) {
                     <g key={`${row}-${col}`}>
                       <polygon
                         points={`${x + 35},${y} ${x + 70},${y + 60} ${x},${y + 60}`}
-                        stroke="rgba(255,255,255,0.06)"
+                        stroke="var(--theme-border-faint)"
                         strokeWidth="0.8"
                         fill="none"
                       />
@@ -163,10 +163,10 @@ function ProjectModal({ project, onClose }) {
             </svg>
             <div style={{ position: 'relative', zIndex: 1, textAlign: 'center' }}>
               <svg width="50" height="44" viewBox="0 0 50 44" fill="none" style={{ marginBottom: '12px' }}>
-                <polygon points="25,0 50,44 0,44" stroke="rgba(255,255,255,0.5)" strokeWidth="1.5" fill="rgba(255,255,255,0.05)" />
-                <polygon points="25,10 40,44 10,44" stroke="rgba(255,255,255,0.25)" strokeWidth="1" fill="none" />
+                <polygon points="25,0 50,44 0,44" stroke="var(--theme-text-secondary)" strokeWidth="1.5" fill="var(--theme-border-faint)" />
+                <polygon points="25,10 40,44 10,44" stroke="var(--theme-border-strong)" strokeWidth="1" fill="none" />
               </svg>
-              <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', color: 'rgba(255,255,255,0.4)', letterSpacing: '0.2em', textTransform: 'uppercase' }}>
+              <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', color: 'var(--theme-text-tertiary)', letterSpacing: '0.2em', textTransform: 'uppercase' }}>
                 {project.category} · {project.year}
               </div>
             </div>
@@ -178,9 +178,9 @@ function ProjectModal({ project, onClose }) {
                 position: 'absolute',
                 top: '1rem',
                 right: '1rem',
-                background: 'rgba(255,255,255,0.08)',
+                background: 'var(--theme-border-light)',
                 border: '1px solid rgba(255,255,255,0.1)',
-                color: 'white',
+                color: 'var(--theme-text-primary)',
                 width: '36px',
                 height: '36px',
                 display: 'flex',
@@ -196,13 +196,13 @@ function ProjectModal({ project, onClose }) {
 
           {/* Content */}
           <div style={{ padding: '2.5rem' }}>
-            <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '2rem', fontWeight: 700, color: 'white', marginBottom: '4px', letterSpacing: '-0.01em' }}>
+            <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '2rem', fontWeight: 700, color: 'var(--theme-text-primary)', marginBottom: '4px', letterSpacing: '-0.01em' }}>
               {project.title}
             </h3>
-            <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.9rem', marginBottom: '1.5rem', fontFamily: 'var(--font-mono)' }}>
+            <p style={{ color: 'var(--theme-text-tertiary)', fontSize: '0.9rem', marginBottom: '1.5rem', fontFamily: 'var(--font-mono)' }}>
               {project.subtitle}
             </p>
-            <p style={{ color: 'rgba(255,255,255,0.6)', lineHeight: '1.8', marginBottom: '2rem', fontSize: '0.95rem' }}>
+            <p style={{ color: 'var(--theme-text-secondary)', lineHeight: '1.8', marginBottom: '2rem', fontSize: '0.95rem' }}>
               {project.description}
             </p>
 
@@ -245,14 +245,14 @@ function ProjectCard({ project, index, inView, onClick }) {
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       style={{
-        background: hovered ? 'rgba(255, 255, 255, 0.08)' : 'rgba(255, 255, 255, 0.02)',
+        background: hovered ? 'var(--theme-border-light)' : 'var(--theme-surface-glass)',
         backdropFilter: 'blur(16px)',
         WebkitBackdropFilter: 'blur(16px)',
-        border: `1px solid ${hovered ? 'rgba(255, 255, 255, 0.2)' : 'rgba(255, 255, 255, 0.08)'}`,
-        borderTop: `1px solid ${hovered ? 'rgba(255, 255, 255, 0.5)' : 'rgba(255, 255, 255, 0.2)'}`,
+        border: `1px solid ${hovered ? 'var(--theme-border-strong)' : 'var(--theme-border-light)'}`,
+        borderTop: `1px solid ${hovered ? 'var(--theme-text-secondary)' : 'var(--theme-border-strong)'}`,
         boxShadow: hovered 
           ? '0 30px 60px -15px rgba(0,0,0,0.6), inset 0 1px 0 0 rgba(255,255,255,0.1)' 
-          : '0 10px 30px -10px rgba(0,0,0,0.4), inset 0 1px 0 0 rgba(255,255,255,0.05)',
+          : '0 10px 30px -10px rgba(0,0,0,0.4), inset 0 1px 0 0 var(--theme-border-faint)',
         padding: '2.5rem 2rem',
         cursor: 'pointer',
         position: 'relative',
@@ -270,7 +270,7 @@ function ProjectCard({ project, index, inView, onClick }) {
           right: 0,
           width: 0,
           height: 0,
-          borderTop: `32px solid ${hovered ? 'rgba(255,255,255,0.2)' : 'rgba(255,255,255,0.08)'}`,
+          borderTop: `32px solid ${hovered ? 'var(--theme-border-strong)' : 'var(--theme-border-light)'}`,
           borderLeft: '32px solid transparent',
           transition: 'border-top-color 0.3s ease',
         }}
@@ -282,7 +282,7 @@ function ProjectCard({ project, index, inView, onClick }) {
         width="80"
         height="70"
         viewBox="0 0 80 70"
-        fill="white"
+        fill="var(--theme-text-primary)"
       >
         <polygon points="40,0 80,70 0,70" />
       </svg>
@@ -291,10 +291,10 @@ function ProjectCard({ project, index, inView, onClick }) {
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '1rem' }}>
         <div>
           <span className="tag" style={{ marginBottom: '8px', display: 'inline-block' }}>{project.category}</span>
-          <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.2rem', fontWeight: 700, color: 'white', lineHeight: 1.2, marginBottom: '4px' }}>
+          <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.2rem', fontWeight: 700, color: 'var(--theme-text-primary)', lineHeight: 1.2, marginBottom: '4px' }}>
             {project.title}
           </h3>
-          <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.8rem', fontFamily: 'var(--font-mono)' }}>
+          <p style={{ color: 'var(--theme-text-tertiary)', fontSize: '0.8rem', fontFamily: 'var(--font-mono)' }}>
             {project.subtitle}
           </p>
         </div>
@@ -303,13 +303,13 @@ function ProjectCard({ project, index, inView, onClick }) {
           transition={{ duration: 0.3 }}
         >
           <svg width="16" height="14" viewBox="0 0 16 14" fill="none">
-            <polygon points="8,0 16,14 0,14" fill="rgba(255,255,255,0.3)" />
+            <polygon points="8,0 16,14 0,14" fill="var(--theme-text-tertiary)" />
           </svg>
         </motion.div>
       </div>
 
       {/* Description preview */}
-      <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.85rem', lineHeight: '1.6', marginBottom: '1.5rem', display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
+      <p style={{ color: 'var(--theme-text-tertiary)', fontSize: '0.85rem', lineHeight: '1.6', marginBottom: '1.5rem', display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
         {project.description}
       </p>
 
@@ -324,7 +324,7 @@ function ProjectCard({ project, index, inView, onClick }) {
       </div>
 
       {/* Year */}
-      <div style={{ position: 'absolute', bottom: '1.5rem', right: '1.5rem', fontFamily: 'var(--font-mono)', fontSize: '0.65rem', color: 'rgba(255,255,255,0.2)', letterSpacing: '0.1em' }}>
+      <div style={{ position: 'absolute', bottom: '1.5rem', right: '1.5rem', fontFamily: 'var(--font-mono)', fontSize: '0.65rem', color: 'var(--theme-border-strong)', letterSpacing: '0.1em' }}>
         {project.year}
       </div>
     </motion.div>
@@ -362,7 +362,7 @@ export default function Projects() {
           fontFamily: 'var(--font-mono)',
           fontSize: '0.7rem',
           letterSpacing: '0.25em',
-          color: 'rgba(255,255,255,0.35)',
+          color: 'var(--theme-text-tertiary)',
           textTransform: 'uppercase',
           marginBottom: '1rem',
           display: 'flex',
@@ -370,7 +370,7 @@ export default function Projects() {
           gap: '10px',
         }}
       >
-        <svg width="14" height="12" viewBox="0 0 14 12" fill="white" opacity="0.35">
+        <svg width="14" height="12" viewBox="0 0 14 12" fill="var(--theme-text-primary)" opacity="0.35">
           <polygon points="7,0 14,12 0,12" />
         </svg>
         03 — Projects
@@ -384,7 +384,7 @@ export default function Projects() {
           fontFamily: 'var(--font-display)',
           fontSize: 'clamp(2rem, 5vw, 4rem)',
           fontWeight: 700,
-          color: 'white',
+          color: 'var(--theme-text-primary)',
           marginBottom: '0.5rem',
           letterSpacing: '-0.02em',
           lineHeight: 1.1,
@@ -397,7 +397,7 @@ export default function Projects() {
         initial={{ opacity: 0, y: 20 }}
         animate={isInView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.8, delay: 0.2 }}
-        style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.9rem', marginBottom: '3.5rem', maxWidth: '400px' }}
+        style={{ color: 'var(--theme-text-tertiary)', fontSize: '0.9rem', marginBottom: '3.5rem', maxWidth: '400px' }}
       >
         Click any card to explore the full case study.
       </motion.p>

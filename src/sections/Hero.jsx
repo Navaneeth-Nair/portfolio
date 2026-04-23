@@ -77,17 +77,17 @@ export default function Hero() {
         style={{ position: 'absolute', top: 80, right: '5vw', opacity: 0.12 }}
         width="120" height="120" viewBox="0 0 120 120" fill="none"
       >
-        <polygon points="60,0 120,120 0,120" stroke="white" strokeWidth="1" fill="none" />
-        <polygon points="60,20 100,120 20,120" stroke="white" strokeWidth="0.5" fill="none" />
-        <polygon points="60,40 80,120 40,120" stroke="white" strokeWidth="0.3" fill="none" />
+        <polygon points="60,0 120,120 0,120" stroke="var(--theme-text-primary)" strokeWidth="1" fill="none" />
+        <polygon points="60,20 100,120 20,120" stroke="var(--theme-text-primary)" strokeWidth="0.5" fill="none" />
+        <polygon points="60,40 80,120 40,120" stroke="var(--theme-text-primary)" strokeWidth="0.3" fill="none" />
       </svg>
 
       <svg
         style={{ position: 'absolute', bottom: 80, left: '3vw', opacity: 0.06, transform: 'rotate(180deg)' }}
         width="80" height="80" viewBox="0 0 80 80" fill="none"
       >
-        <polygon points="40,0 80,80 0,80" stroke="white" strokeWidth="1" fill="none" />
-        <polygon points="40,15 65,80 15,80" stroke="white" strokeWidth="0.5" fill="none" />
+        <polygon points="40,0 80,80 0,80" stroke="var(--theme-text-primary)" strokeWidth="1" fill="none" />
+        <polygon points="40,15 65,80 15,80" stroke="var(--theme-text-primary)" strokeWidth="0.5" fill="none" />
       </svg>
 
       {/* Label */}
@@ -95,19 +95,20 @@ export default function Hero() {
         initial={{ opacity: 0, x: -20 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ delay: 0.2, duration: 0.6 }}
-        style={{
+      >
+        <h2 style={{
           fontFamily: 'var(--font-mono)',
-          fontSize: '0.75rem',
-          letterSpacing: '0.2em',
-          color: 'rgba(255,255,255,0.4)',
+          fontSize: '0.85rem',
+          letterSpacing: '0.3em',
+          color: 'var(--theme-text-tertiary)',
           textTransform: 'uppercase',
-          marginBottom: '1.5rem',
+          marginBottom: '2rem',
           display: 'flex',
           alignItems: 'center',
-          gap: '12px',
-        }}
-      >
-        Automation · Systems · ML
+          gap: '1rem'
+        }}>
+          Automation <span style={{ color: 'var(--theme-text-muted)' }}>•</span> Systems <span style={{ color: 'var(--theme-text-muted)' }}>•</span> ML
+        </h2>
       </motion.div>
 
       {/* Main title */}
@@ -118,7 +119,7 @@ export default function Hero() {
           fontSize: 'clamp(3.5rem, 10vw, 9rem)',
           fontWeight: 700,
           lineHeight: 0.95,
-          color: 'white',
+          color: 'var(--theme-text-primary)',
           letterSpacing: '-0.02em',
           marginBottom: '2rem',
           overflow: 'hidden',
@@ -140,13 +141,7 @@ export default function Hero() {
         <br />
         <span
           style={{
-            fontSize: 'clamp(1.8rem, 4.5vw, 4rem)',
-            fontWeight: 300,
-            letterSpacing: '0.02em',
-            background: 'linear-gradient(90deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.3) 100%)',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
-            backgroundClip: 'text',
+            fontSize: 'clamp(1.8rem, 4.5vw, 4rem)', fontWeight: 300, letterSpacing: '0.02em', color: 'var(--theme-text-primary)',
           }}
         >
           Nair
@@ -160,7 +155,7 @@ export default function Hero() {
           maxWidth: '520px',
           fontSize: '1rem',
           lineHeight: '1.7',
-          color: 'rgba(255,255,255,0.45)',
+          color: 'var(--theme-text-tertiary)',
           marginBottom: '3rem',
           fontWeight: 300,
           opacity: 0,
@@ -212,13 +207,13 @@ export default function Hero() {
             rel="noopener noreferrer"
             aria-label={label}
             style={{
-              color: 'rgba(255,255,255,0.35)',
+              color: 'var(--theme-text-tertiary)',
               transition: 'color 0.3s ease',
               display: 'flex',
               alignItems: 'center',
             }}
-            onMouseEnter={(e) => (e.currentTarget.style.color = 'white')}
-            onMouseLeave={(e) => (e.currentTarget.style.color = 'rgba(255,255,255,0.35)')}
+            onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--theme-text-primary)')}
+            onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--theme-text-tertiary)')}
           >
             <Icon />
           </a>
@@ -232,7 +227,7 @@ export default function Hero() {
           aria-label="Scroll down"
           style={{ background: 'none', border: 'none', cursor: 'pointer', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px', opacity: 0.35 }}
         >
-          <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', letterSpacing: '0.15em', color: 'white', textTransform: 'uppercase' }}>Scroll</span>
+          <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', letterSpacing: '0.15em', color: 'var(--theme-text-primary)', textTransform: 'uppercase' }}>Scroll</span>
           <div className="scroll-dot" />
         </button>
       </div>
@@ -241,7 +236,7 @@ export default function Hero() {
       <div style={{ position: 'absolute', right: 0, top: '50%', transform: 'translateY(-50%)', opacity: 0.04 }}>
         <svg width="60" height="400" viewBox="0 0 60 400" fill="none">
           {[0, 60, 120, 180, 240, 300].map((y) => (
-            <polygon key={y} points={`30,${y} 60,${y + 55} 0,${y + 55}`} stroke="white" strokeWidth="1" fill="none" />
+            <polygon key={y} points={`30,${y} 60,${y + 55} 0,${y + 55}`} stroke="var(--theme-text-primary)" strokeWidth="1" fill="none" />
           ))}
         </svg>
       </div>

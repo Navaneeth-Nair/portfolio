@@ -48,7 +48,7 @@ function SkillTile({ skill, index, inView }) {
           viewBox="0 0 60 60"
           fill="none"
         >
-          <polygon points="60,0 60,60 0,60" fill="white" />
+          <polygon points="60,0 60,60 0,60" fill="var(--theme-text-primary)" />
         </svg>
 
         <div
@@ -61,7 +61,7 @@ function SkillTile({ skill, index, inView }) {
           }}
         >
           <svg width="32" height="28" viewBox="0 0 32 28" fill="none">
-            <polygon points="16,0 32,28 0,28" stroke="rgba(255,255,255,0.4)" strokeWidth="1.5" fill="rgba(255,255,255,0.04)" />
+            <polygon points="16,0 32,28 0,28" stroke="var(--theme-text-tertiary)" strokeWidth="1.5" fill="var(--theme-border-faint)" />
           </svg>
         </div>
 
@@ -70,7 +70,7 @@ function SkillTile({ skill, index, inView }) {
             fontFamily: 'var(--font-display)',
             fontWeight: 600,
             fontSize: '1rem',
-            color: 'white',
+            color: 'var(--theme-text-primary)',
             textAlign: 'center',
             lineHeight: 1.3,
           }}
@@ -81,7 +81,7 @@ function SkillTile({ skill, index, inView }) {
           fontFamily: 'var(--font-mono)',
           fontSize: '0.65rem',
           letterSpacing: '0.1em',
-          color: 'rgba(255,255,255,0.4)',
+          color: 'var(--theme-text-tertiary)',
           textTransform: 'uppercase',
           marginTop: '4px'
         }}>
@@ -112,7 +112,7 @@ export default function Skills() {
       {/* Top divider triangle */}
       <div style={{ position: 'absolute', top: 0, left: 0, right: 0 }}>
         <svg viewBox="0 0 1440 40" fill="none" preserveAspectRatio="none" style={{ width: '100%', height: '40px' }}>
-          <polygon points="0,0 1440,0 720,40" fill="rgba(255,255,255,0.02)" />
+          <polygon points="0,0 1440,0 720,40" fill="var(--theme-surface-glass)" />
         </svg>
       </div>
 
@@ -125,7 +125,7 @@ export default function Skills() {
           fontFamily: 'var(--font-mono)',
           fontSize: '0.7rem',
           letterSpacing: '0.25em',
-          color: 'rgba(255,255,255,0.35)',
+          color: 'var(--theme-text-tertiary)',
           textTransform: 'uppercase',
           marginBottom: '1rem',
           display: 'flex',
@@ -133,7 +133,7 @@ export default function Skills() {
           gap: '10px',
         }}
       >
-        <svg width="14" height="12" viewBox="0 0 14 12" fill="white" opacity="0.35">
+        <svg width="14" height="12" viewBox="0 0 14 12" fill="var(--theme-text-primary)" opacity="0.35">
           <polygon points="7,0 14,12 0,12" />
         </svg>
         02 — Skills
@@ -147,7 +147,7 @@ export default function Skills() {
           fontFamily: 'var(--font-display)',
           fontSize: 'clamp(2rem, 5vw, 4rem)',
           fontWeight: 700,
-          color: 'white',
+          color: 'var(--theme-text-primary)',
           marginBottom: '0.5rem',
           letterSpacing: '-0.02em',
           lineHeight: 1.1,
@@ -161,7 +161,7 @@ export default function Skills() {
         animate={isInView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.8, delay: 0.2 }}
         style={{
-          color: 'rgba(255,255,255,0.4)',
+          color: 'var(--theme-text-tertiary)',
           fontSize: '0.9rem',
           marginBottom: '3.5rem',
           maxWidth: '500px',
@@ -176,7 +176,7 @@ export default function Skills() {
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fill, minmax(180px, 1fr))',
           gap: '1px',
-          background: 'rgba(255,255,255,0.05)',
+          background: 'var(--theme-border-faint)',
         }}
       >
         {SKILLS.map((skill, i) => (
@@ -195,7 +195,7 @@ export default function Skills() {
         viewBox="0 0 200 175"
         fill="none"
       >
-        <polygon points="100,0 200,175 0,175" stroke="white" strokeWidth="1" fill="none" />
+        <polygon points="100,0 200,175 0,175" stroke="var(--theme-text-primary)" strokeWidth="1" fill="none" />
       </motion.svg>
     </section>
   )

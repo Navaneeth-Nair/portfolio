@@ -68,10 +68,10 @@ export default function Contact() {
         viewBox="0 0 800 700"
         fill="none"
       >
-        <polygon points="400,0 800,700 0,700" stroke="white" strokeWidth="1.5" fill="none" />
-        <polygon points="400,60 720,700 80,700" stroke="white" strokeWidth="1" fill="none" />
-        <polygon points="400,120 640,700 160,700" stroke="white" strokeWidth="0.6" fill="none" />
-        <polygon points="400,180 560,700 240,700" stroke="white" strokeWidth="0.4" fill="none" />
+        <polygon points="400,0 800,700 0,700" stroke="var(--theme-text-primary)" strokeWidth="1.5" fill="none" />
+        <polygon points="400,60 720,700 80,700" stroke="var(--theme-text-primary)" strokeWidth="1" fill="none" />
+        <polygon points="400,120 640,700 160,700" stroke="var(--theme-text-primary)" strokeWidth="0.6" fill="none" />
+        <polygon points="400,180 560,700 240,700" stroke="var(--theme-text-primary)" strokeWidth="0.4" fill="none" />
       </svg>
 
       <div style={{ maxWidth: '1100px', margin: '0 auto', width: '100%', position: 'relative', zIndex: 1 }}>
@@ -84,7 +84,7 @@ export default function Contact() {
             fontFamily: 'var(--font-mono)',
             fontSize: '0.7rem',
             letterSpacing: '0.25em',
-            color: 'rgba(255,255,255,0.35)',
+            color: 'var(--theme-text-tertiary)',
             textTransform: 'uppercase',
             marginBottom: '1rem',
             display: 'flex',
@@ -92,7 +92,7 @@ export default function Contact() {
             gap: '10px',
           }}
         >
-          <svg width="14" height="12" viewBox="0 0 14 12" fill="white" opacity="0.35">
+          <svg width="14" height="12" viewBox="0 0 14 12" fill="var(--theme-text-primary)" opacity="0.35">
             <polygon points="7,0 14,12 0,12" />
           </svg>
           04 — Contact
@@ -109,7 +109,7 @@ export default function Contact() {
                 fontFamily: 'var(--font-display)',
                 fontSize: 'clamp(2.5rem, 5vw, 4rem)',
                 fontWeight: 700,
-                color: 'white',
+                color: 'var(--theme-text-primary)',
                 lineHeight: 1.05,
                 letterSpacing: '-0.02em',
                 marginBottom: '1.5rem',
@@ -124,7 +124,7 @@ export default function Contact() {
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.8, delay: 0.2 }}
-              style={{ color: 'rgba(255,255,255,0.45)', lineHeight: '1.8', marginBottom: '3rem', fontSize: '0.95rem' }}
+              style={{ color: 'var(--theme-text-tertiary)', lineHeight: '1.8', marginBottom: '3rem', fontSize: '0.95rem' }}
             >
               Open to freelance projects, full-time roles, and interesting collaborations.
               If you have an idea worth building, I'd love to hear about it.
@@ -150,24 +150,24 @@ export default function Contact() {
                     display: 'flex',
                     alignItems: 'center',
                     gap: '14px',
-                    color: 'rgba(255,255,255,0.45)',
+                    color: 'var(--theme-text-tertiary)',
                     textDecoration: 'none',
                     padding: '12px 16px',
-                    border: '1px solid rgba(255,255,255,0.06)',
-                    background: 'rgba(255,255,255,0.02)',
+                    border: '1px solid var(--theme-border-faint)',
+                    background: 'var(--theme-surface-glass)',
                     transition: 'all 0.3s ease',
                     position: 'relative',
                     overflow: 'hidden',
                   }}
                   onMouseEnter={(e) => {
                     e.currentTarget.style.color = 'white'
-                    e.currentTarget.style.borderColor = 'rgba(255,255,255,0.2)'
-                    e.currentTarget.style.background = 'rgba(255,255,255,0.05)'
+                    e.currentTarget.style.borderColor = 'var(--theme-border-strong)'
+                    e.currentTarget.style.background = 'var(--theme-border-faint)'
                   }}
                   onMouseLeave={(e) => {
-                    e.currentTarget.style.color = 'rgba(255,255,255,0.45)'
-                    e.currentTarget.style.borderColor = 'rgba(255,255,255,0.06)'
-                    e.currentTarget.style.background = 'rgba(255,255,255,0.02)'
+                    e.currentTarget.style.color = 'var(--theme-text-tertiary)'
+                    e.currentTarget.style.borderColor = 'var(--theme-border-faint)'
+                    e.currentTarget.style.background = 'var(--theme-surface-glass)'
                   }}
                 >
                   <Icon size={16} />
@@ -182,7 +182,7 @@ export default function Contact() {
                       right: 0,
                       width: 0,
                       height: 0,
-                      borderTop: '18px solid rgba(255,255,255,0.08)',
+                      borderTop: '18px solid var(--theme-border-light)',
                       borderLeft: '18px solid transparent',
                     }}
                   />
@@ -209,17 +209,17 @@ export default function Contact() {
                   minHeight: '400px',
                   gap: '1.5rem',
                   textAlign: 'center',
-                  border: '1px solid rgba(255,255,255,0.08)',
-                  background: 'rgba(255,255,255,0.02)',
+                  border: '1px solid var(--theme-border-light)',
+                  background: 'var(--theme-surface-glass)',
                   padding: '3rem',
                 }}
               >
                 <svg width="60" height="52" viewBox="0 0 60 52" fill="none">
-                  <polygon points="30,0 60,52 0,52" stroke="white" strokeWidth="1.5" fill="rgba(255,255,255,0.05)" />
-                  <polygon points="30,12 48,52 12,52" stroke="rgba(255,255,255,0.4)" strokeWidth="1" fill="none" />
+                  <polygon points="30,0 60,52 0,52" stroke="var(--theme-text-primary)" strokeWidth="1.5" fill="var(--theme-border-faint)" />
+                  <polygon points="30,12 48,52 12,52" stroke="var(--theme-text-tertiary)" strokeWidth="1" fill="none" />
                 </svg>
-                <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.5rem', color: 'white', fontWeight: 700 }}>Message Sent!</h3>
-                <p style={{ color: 'rgba(255,255,255,0.45)', fontSize: '0.9rem', maxWidth: '280px' }}>
+                <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.5rem', color: 'var(--theme-text-primary)', fontWeight: 700 }}>Message Sent!</h3>
+                <p style={{ color: 'var(--theme-text-tertiary)', fontSize: '0.9rem', maxWidth: '280px' }}>
                   Thanks for reaching out. I'll get back to you within 24 hours.
                 </p>
               </motion.div>
@@ -230,24 +230,24 @@ export default function Contact() {
                   display: 'flex',
                   flexDirection: 'column',
                   gap: '0',
-                  border: '1px solid rgba(255,255,255,0.06)',
+                  border: '1px solid var(--theme-border-faint)',
                 }}
               >
                 {/* Form header */}
                 <div
                   style={{
-                    background: 'rgba(255,255,255,0.03)',
-                    borderBottom: '1px solid rgba(255,255,255,0.06)',
+                    background: 'var(--theme-surface-glass)',
+                    borderBottom: '1px solid var(--theme-border-faint)',
                     padding: '1rem 1.5rem',
                     display: 'flex',
                     alignItems: 'center',
                     gap: '10px',
                   }}
                 >
-                  <svg width="16" height="14" viewBox="0 0 16 14" fill="white" opacity="0.3">
+                  <svg width="16" height="14" viewBox="0 0 16 14" fill="var(--theme-text-primary)" opacity="0.3">
                     <polygon points="8,0 16,14 0,14" />
                   </svg>
-                  <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.7rem', letterSpacing: '0.15em', color: 'rgba(255,255,255,0.3)', textTransform: 'uppercase' }}>
+                  <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.7rem', letterSpacing: '0.15em', color: 'var(--theme-text-tertiary)', textTransform: 'uppercase' }}>
                     new_message.txt
                   </span>
                 </div>
@@ -255,7 +255,7 @@ export default function Contact() {
                 <div style={{ padding: '1.5rem', display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
                   <div>
                     <label
-                      style={{ display: 'block', fontFamily: 'var(--font-mono)', fontSize: '0.65rem', letterSpacing: '0.15em', color: 'rgba(255,255,255,0.4)', textTransform: 'uppercase', marginBottom: '8px' }}
+                      style={{ display: 'block', fontFamily: 'var(--font-mono)', fontSize: '0.65rem', letterSpacing: '0.15em', color: 'var(--theme-text-tertiary)', textTransform: 'uppercase', marginBottom: '8px' }}
                     >
                       Name
                     </label>
@@ -270,14 +270,14 @@ export default function Contact() {
                       onBlur={() => setFocused(null)}
                       required
                       style={{
-                        borderColor: focused === 'name' ? 'rgba(255,255,255,0.3)' : 'rgba(255,255,255,0.08)',
+                        borderColor: focused === 'name' ? 'var(--theme-text-tertiary)' : 'var(--theme-border-light)',
                       }}
                     />
                   </div>
 
                   <div>
                     <label
-                      style={{ display: 'block', fontFamily: 'var(--font-mono)', fontSize: '0.65rem', letterSpacing: '0.15em', color: 'rgba(255,255,255,0.4)', textTransform: 'uppercase', marginBottom: '8px' }}
+                      style={{ display: 'block', fontFamily: 'var(--font-mono)', fontSize: '0.65rem', letterSpacing: '0.15em', color: 'var(--theme-text-tertiary)', textTransform: 'uppercase', marginBottom: '8px' }}
                     >
                       Email
                     </label>
@@ -292,14 +292,14 @@ export default function Contact() {
                       onBlur={() => setFocused(null)}
                       required
                       style={{
-                        borderColor: focused === 'email' ? 'rgba(255,255,255,0.3)' : 'rgba(255,255,255,0.08)',
+                        borderColor: focused === 'email' ? 'var(--theme-text-tertiary)' : 'var(--theme-border-light)',
                       }}
                     />
                   </div>
 
                   <div>
                     <label
-                      style={{ display: 'block', fontFamily: 'var(--font-mono)', fontSize: '0.65rem', letterSpacing: '0.15em', color: 'rgba(255,255,255,0.4)', textTransform: 'uppercase', marginBottom: '8px' }}
+                      style={{ display: 'block', fontFamily: 'var(--font-mono)', fontSize: '0.65rem', letterSpacing: '0.15em', color: 'var(--theme-text-tertiary)', textTransform: 'uppercase', marginBottom: '8px' }}
                     >
                       Message
                     </label>
@@ -317,7 +317,7 @@ export default function Contact() {
                         resize: 'vertical',
                         fontFamily: 'var(--font-body)',
                         minHeight: '120px',
-                        borderColor: focused === 'message' ? 'rgba(255,255,255,0.3)' : 'rgba(255,255,255,0.08)',
+                        borderColor: focused === 'message' ? 'var(--theme-text-tertiary)' : 'var(--theme-border-light)',
                       }}
                     />
                   </div>
@@ -338,23 +338,23 @@ export default function Contact() {
       </div>
 
       {/* Footer */}
-      <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '2rem 8vw', display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderTop: '1px solid rgba(255,255,255,0.04)' }}>
+      <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '2rem 8vw', display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderTop: '1px solid var(--theme-border-faint)' }}>
         <span 
           onClick={() => setFooterText('baseball huh?')}
           style={{ 
             fontFamily: 'var(--font-mono)', 
             fontSize: '0.65rem', 
-            color: 'rgba(255,255,255,0.2)', 
+            color: 'var(--theme-border-strong)', 
             letterSpacing: '0.1em',
             cursor: 'pointer',
             transition: 'color 0.3s'
           }}
-          onMouseEnter={(e) => e.currentTarget.style.color = 'rgba(255,255,255,0.5)'}
-          onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(255,255,255,0.2)'}
+          onMouseEnter={(e) => e.currentTarget.style.color = 'var(--theme-text-secondary)'}
+          onMouseLeave={(e) => e.currentTarget.style.color = 'var(--theme-border-strong)'}
         >
           {footerText}
         </span>
-        <svg width="20" height="17" viewBox="0 0 20 17" fill="white" opacity="0.15">
+        <svg width="20" height="17" viewBox="0 0 20 17" fill="var(--theme-text-primary)" opacity="0.15">
           <polygon points="10,0 20,17 0,17" />
         </svg>
       </div>

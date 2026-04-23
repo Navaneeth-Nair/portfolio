@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import './index.css'
 import { MouseProvider } from './context/MouseContext'
+import { ThemeProvider } from './context/ThemeContext'
 import TriangleBackground from './components/canvas/TriangleBackground'
 import CursorTrail from './components/canvas/CursorTrail'
 import Navbar from './components/layout/Navbar'
@@ -19,27 +20,29 @@ export default function App() {
   }, [])
 
   return (
-    <MouseProvider>
-      {/* Fixed WebGL triangle background */}
-      <TriangleBackground />
+    <ThemeProvider>
+      <MouseProvider>
+        {/* Fixed WebGL triangle background */}
+        <TriangleBackground />
 
-      {/* Triangle cursor trail */}
-      <CursorTrail />
+        {/* Triangle cursor trail */}
+        <CursorTrail />
 
-      {/* Noise overlay for texture */}
-      <div className="noise-overlay" />
+        {/* Noise overlay for texture */}
+        <div className="noise-overlay" />
 
-      {/* Navigation */}
-      <Navbar />
+        {/* Navigation */}
+        <Navbar />
 
-      {/* Main content */}
-      <div className="portfolio-wrapper">
-        <Hero />
-        <About />
-        <Skills />
-        <Projects />
-        <Contact />
-      </div>
-    </MouseProvider>
+        {/* Main content */}
+        <div className="portfolio-wrapper">
+          <Hero />
+          <About />
+          <Skills />
+          <Projects />
+          <Contact />
+        </div>
+      </MouseProvider>
+    </ThemeProvider>
   )
 }
