@@ -1,4 +1,5 @@
 import { useRef, useState } from 'react'
+import { createPortal } from 'react-dom'
 import { motion, useInView, AnimatePresence } from 'framer-motion'
 import { ExternalLink, X } from 'lucide-react'
 
@@ -90,7 +91,7 @@ const PROJECTS = [
 ]
 
 function TriangleWipe({ isOpen }) {
-  return (
+  return createPortal(
     <AnimatePresence>
       {isOpen && (
         <motion.div
@@ -102,17 +103,18 @@ function TriangleWipe({ isOpen }) {
             position: 'fixed',
             inset: 0,
             background: 'rgba(0,0,0,0.9)',
-            zIndex: 98,
+            zIndex: 1999,
           }}
         />
       )}
-    </AnimatePresence>
+    </AnimatePresence>,
+    document.body
   )
 }
 
 function ProjectModal({ project, onClose }) {
   if (!project) return null
-  return (
+  return createPortal(
     <AnimatePresence>
       <motion.div
         className="modal-overlay"
@@ -120,7 +122,7 @@ function ProjectModal({ project, onClose }) {
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         onClick={onClose}
-        style={{ zIndex: 99 }}
+        style={{ zIndex: 2000 }}
       >
         <motion.div
           className="modal-content"
@@ -170,27 +172,12 @@ function ProjectModal({ project, onClose }) {
                 {project.category} · {project.year}
               </div>
             </div>
-            {/* Close */}
             <button
               onClick={onClose}
               aria-label="Close"
-              style={{
-                position: 'absolute',
-                top: '1rem',
-                right: '1rem',
-                background: 'var(--theme-border-light)',
-                border: '1px solid rgba(255,255,255,0.1)',
-                color: 'var(--theme-text-primary)',
-                width: '36px',
-                height: '36px',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                cursor: 'pointer',
-                clipPath: 'polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px))',
-              }}
+              className="modal-close-btn"
             >
-              <X size={16} />
+              <X size={20} />
             </button>
           </div>
 
@@ -229,7 +216,8 @@ function ProjectModal({ project, onClose }) {
           </div>
         </motion.div>
       </motion.div>
-    </AnimatePresence>
+    </AnimatePresence>,
+    document.body
   )
 }
 

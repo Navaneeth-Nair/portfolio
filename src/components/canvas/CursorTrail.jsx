@@ -1,16 +1,20 @@
 import { useEffect, useRef } from 'react'
 import { useTheme } from '../../context/ThemeContext'
+import { useMouse } from '../../context/MouseContext'
 
 const TRAIL_LENGTH = 8
 
 export default function CursorTrail() {
   const trailRef = useRef([])
-  const mouseRef = useRef({ x: -100, y: -100 })
   const rafRef = useRef(null)
   const { theme } = useTheme()
+  const mouse = useMouse()
 
   useEffect(() => {
-    // Clear any existing trail if theme changes
+    // Disable trail on touch devices for cleaner mobile UX
+    const isTouch = window.matchMedia("(pointer: coarse)").matches
+    if (isTouch) return
+
     const container = document.getElementById('cursor-trail-container')
     if (!container) return
     container.innerHTML = ''
@@ -28,7 +32,7 @@ export default function CursorTrail() {
         height: ${7 + (TRAIL_LENGTH - i) * 2}px;
         opacity: 0;
         transform-origin: center;
-        transition: opacity 0.3s ease;
+        transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1);
       `
       const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
       svg.setAttribute('viewBox', '0 0 20 17')
@@ -49,22 +53,6 @@ export default function CursorTrail() {
     })
     trailRef.current = triangles
 
-    const handleMouseMove = (e) => {
-      mouseRef.current = { x: e.clientX, y: e.clientY }
-      triangles.forEach((t) => {
-        t.el.style.opacity = '1'
-      })
-    }
-
-    const handleMouseLeave = () => {
-      triangles.forEach((t) => {
-        t.el.style.opacity = '0'
-      })
-    }
-
-    window.addEventListener('mousemove', handleMouseMove, { passive: true })
-    document.addEventListener('mouseleave', handleMouseLeave)
-
     let positions = Array.from({ length: TRAIL_LENGTH }, () => ({ x: -100, y: -100 }))
 
     const animate = () => {
@@ -72,7 +60,9 @@ export default function CursorTrail() {
       for (let i = TRAIL_LENGTH - 1; i > 0; i--) {
         positions[i] = { ...positions[i - 1] }
       }
-      positions[0] = { ...mouseRef.current }
+      
+      const mouseState = mouse.current
+      positions[0] = { x: mouseState.x, y: mouseState.y }
 
       triangles.forEach((t, i) => {
         const pos = positions[i]
@@ -80,6 +70,9 @@ export default function CursorTrail() {
         t.el.style.left = `${pos.x - size / 2}px`
         t.el.style.top = `${pos.y - size / 2 - 2}px`
         t.el.style.transform = `rotate(${i * 15}deg) scale(${1 - i * 0.08})`
+        
+        // Hide trail if pointer is inactive
+        t.el.style.opacity = mouseState.active ? '1' : '0'
       })
 
       rafRef.current = requestAnimationFrame(animate)
@@ -88,12 +81,10 @@ export default function CursorTrail() {
     animate()
 
     return () => {
-      window.removeEventListener('mousemove', handleMouseMove)
-      document.removeEventListener('mouseleave', handleMouseLeave)
       cancelAnimationFrame(rafRef.current)
       triangles.forEach((t) => t.el.remove())
     }
-  }, [theme])
+  }, [theme, mouse])
 
   return <div id="cursor-trail-container" style={{ position: 'fixed', inset: 0, zIndex: 9999, pointerEvents: 'none' }} />
 }

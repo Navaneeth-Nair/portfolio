@@ -25,8 +25,10 @@ export default function App() {
         {/* Fixed WebGL triangle background */}
         <TriangleBackground />
 
-        {/* Triangle cursor trail */}
-        <CursorTrail />
+        {/* Triangle cursor trail - Only on desktop */}
+        {typeof window !== 'undefined' && !window.matchMedia("(pointer: coarse)").matches && (
+          <CursorTrail />
+        )}
 
         {/* Noise overlay for texture */}
         <div className="noise-overlay" />

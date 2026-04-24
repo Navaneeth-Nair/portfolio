@@ -79,10 +79,17 @@ export default function TriangleMesh() {
     }
   }, [geometry])
 
-  useFrame(({ clock }) => {
+  const activityRef = useRef(0)
+
+  useFrame((state, delta) => {
+    const { clock } = state
     const t = clock.getElapsedTime()
     const pos = geometry.attributes.position.array
     const colorAttr = geometry.attributes.color.array
+    
+    // Smoothly transition activity level (0 when inactive, 1 when active)
+    const targetActivity = mouse.current.active ? 1 : 0
+    activityRef.current = THREE.MathUtils.lerp(activityRef.current, targetActivity, 1 - Math.pow(0.001, delta))
     
     const mx = mouse.current.nx * (viewport.width / 2)
     const my = mouse.current.ny * (viewport.height / 2)
@@ -91,9 +98,7 @@ export default function TriangleMesh() {
     const influenceRadius = isMobile ? viewport.width * 0.35 : viewport.width * 0.2
 
     // Setup base camouflage depending on active mode
-    // #f8f9fa is exactly ~0.975 in RGB float precision.
     const baseIntensity = isLight ? 0.975 : 0.015
-    // Drop all the way down to near-black when pulled in light mode.
     const peakIntensity = isLight ? (isMobile ? -0.6 : -0.9) : (isMobile ? 0.2 : 0.4)
 
     for (let i = 0; i < vertexCount; i++) {
@@ -109,6 +114,9 @@ export default function TriangleMesh() {
         if (dist < influenceRadius) {
             influence = Math.pow(Math.cos((dist / influenceRadius) * (Math.PI / 2)), 1.5)
         }
+
+        // Apply activity level to fade out blotches when finger is lifted
+        influence *= activityRef.current
 
         const driftX = Math.sin(t * 0.5 + by * 0.02) * (isMobile ? 1 : 2)
         const driftY = Math.cos(t * 0.5 + bx * 0.02) * (isMobile ? 1 : 2)

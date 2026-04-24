@@ -367,7 +367,7 @@ section {
 .modal-overlay {
   position: fixed;
   inset: 0;
-  z-index: 100;
+  z-index: 2000;
   background: rgba(0,0,0,0.85);
   backdrop-filter: blur(8px);
   display: flex;
@@ -383,6 +383,41 @@ section {
   background: #111;
   border: 1px solid rgba(255,255,255,0.08);
   position: relative;
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  background: var(--theme-border-light);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: var(--theme-text-primary);
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.modal-close-btn:hover {
+  background: var(--theme-border-strong);
+  transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  .modal-overlay {
+    padding: 1rem;
+  }
+  .modal-close-btn {
+    top: 2rem; /* Avoid overlap on mobile */
+    right: 1.5rem;
+    width: 48px;
+    height: 48px;
+  }
 }
 
 /* Responsive */
