@@ -21,7 +21,7 @@ const MailSVG = () => (
 
 const SOCIALS = [
   { icon: GitHubSVG, href: 'https://github.com/Navaneeth-Nair', label: 'GitHub' },
-  { icon: LinkedInSVG, href: 'https://linkedin.com/in/navaneeth%20nair', label: 'LinkedIn' },
+  { icon: LinkedInSVG, href: 'https://linkedin.com/in/navaneeth-nair', label: 'LinkedIn' },
   { icon: MailSVG, href: 'mailto:navaneethnairdev@gmail.com', label: 'Email' },
 ]
 
@@ -189,6 +189,15 @@ export default function Hero() {
           className="btn-outline"
         >
           GitHub ↗
+        </a>
+        <a
+          href="/Navaneeth_Nair.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="btn-outline"
+          download="Navaneeth_Nair_Resume.pdf"
+        >
+          Resume ↓
         </a>
       </motion.div>
 
