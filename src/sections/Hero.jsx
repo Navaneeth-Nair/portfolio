@@ -191,7 +191,7 @@ export default function Hero() {
           GitHub ↗
         </a>
         <a
-          href="/Navaneeth_Nair.pdf"
+          href="/Navaneeth_Nair_Resume.pdf"
           target="_blank"
           rel="noopener noreferrer"
           className="btn-outline"
