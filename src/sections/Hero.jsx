@@ -21,7 +21,7 @@ const MailSVG = () => (
 
 const SOCIALS = [
   { icon: GitHubSVG, href: 'https://github.com/Navaneeth-Nair', label: 'GitHub' },
-  { icon: LinkedInSVG, href: 'https://linkedin.com/in/navaneeth-nair', label: 'LinkedIn' },
+  { icon: LinkedInSVG, href: 'https://www.linkedin.com/in/navaneeth-nair82/', label: 'LinkedIn' },
   { icon: MailSVG, href: 'mailto:navaneethnairdev@gmail.com', label: 'Email' },
 ]
 
